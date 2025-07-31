@@ -403,7 +403,7 @@
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             display: block;
         }
@@ -572,14 +572,19 @@
             .lightbox-image {
                 max-height: 70vh;
             }
-        }
+.gallery-item img {
+                height: 420px;
+                
+            }
+
+            }
 
         @media (max-width: 480px) {
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
             .gallery-item img {
-                height: 200px;
+                height: 300px;
             }
             .gallery-title {
                 font-size: 2rem;
@@ -606,9 +611,9 @@
         <div class="card">
             <img src="ganesh.png" alt="Ganesha" class="ganesha" />
             <div class="shloka">
-                || श्री गणेशाय नम: || <br>
-                वक्रतुंड महाकाय सूर्यकोटि समप्रभ: <br>
-                निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ||
+               || శ్రీ గణేశాయ నమః || <br>
+వక్రతుండ మహాకాయ సూర్యకోటిసమప్రభః। <br>
+నిర్విఘ్నం కురు మే దేవ సర్వకార్యేషు సర్వదా॥ <br>
             </div>
             <h1>Anil & Bhargavi</h1>
             <h2>We're Getting Married!❤️</h2>
@@ -699,6 +704,18 @@
     <section class="gallery-container">
         <div class="section-title">Our Moments</div>
         <div class="gallery-grid">
+              <div class="gallery-item" data-caption="Engagement smiles">
+                <img src="both.jpg" alt="Engagement">
+                <div class="gallery-caption">Engagement💍</div>
+            </div>
+             <div class="gallery-item" data-caption="Engagement Smiles">
+                <img src="engag.jpg" alt="Engagement Smiles">
+                <div class="gallery-caption">Engagement Smiles</div>
+            </div>
+            <div class="gallery-item" data-caption="Groom's Haldi Fun">
+                <img src="AnilHaldi.jpeg" alt="Haldi Ceremony Photo 2">
+                <div class="gallery-caption">Groom's Haldi Fun</div>
+            </div>
             <div class="gallery-item" data-caption="Bride's Haldi Ceremony">
                 <img src="BhavikaHaldi.jpeg" alt="Haldi Ceremony Photo 1">
                 <div class="gallery-caption">Bride's Haldi Ceremony</div>
@@ -707,22 +724,13 @@
                 <img src="brideEng.jpg" alt="Engagement Ring">
                 <div class="gallery-caption">Bride's Beauty</div>
             </div>
-            <div class="gallery-item" data-caption="Engagement smiles">
-                <img src="both.jpg" alt="Engagement">
-                <div class="gallery-caption">Engagement💍</div>
-            </div>
+            
             <div class="gallery-item" data-caption="Together">
                 <img src="together.jpg" alt="Together">
                 <div class="gallery-caption">Together💝</div>
             </div>
-            <div class="gallery-item" data-caption="Groom's Haldi Fun">
-                <img src="AnilHaldi.jpeg" alt="Haldi Ceremony Photo 2">
-                <div class="gallery-caption">Groom's Haldi Fun</div>
-            </div>
-            <div class="gallery-item" data-caption="Engagement Smiles">
-                <img src="engag.jpg" alt="Engagement Smiles">
-                <div class="gallery-caption">Engagement Smiles</div>
-            </div>
+            
+            
         </div>
     </section>
 
