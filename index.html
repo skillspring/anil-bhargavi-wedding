@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anil & Bhargavi Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+
+    <style>
+        /* Your existing CSS styles go here */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background: #fefcf8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .hero {
+            background: url('https://static.vecteezy.com/system/resources/previews/050/437/006/non_2x/delicate-pink-roses-and-petals-on-soft-white-background-free-photo.jpg') center/cover fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #333;
+        }
+        .wedding-date-layout {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .day-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .date-line {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .date-line span {
+            font-family: 'Georgia', serif;
+        }
+
+        .pipe {
+            color: #666;
+            font-weight: normal;
+        }
+        
+        .person-name span {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .save-date {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff5f8;
+        }
+
+        .save-subtitle {
+            font-size: 1.4rem;
+            color: #d96666;
+            margin-bottom: 2rem;
+        }
+
+        .calendar-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #d96666;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .calendar-header {
+            background-color: #d96666;
+            color: white;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar th,
+        .calendar td {
+            width: 14.2857%;
+            height: 60px;
+            border: 1px solid #eee;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1rem;
+        }
+
+        .love-date {
+            position: relative;
+            background-color: #ffe6ec;
+            color: #d6336c;
+            font-weight: bold;
+        }
+
+        .love {
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 4px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.3); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            .calendar th,
+            .calendar td {
+                height: 50px;
+                font-size: 0.9rem;
+            }
+            .save-subtitle {
+                font-size: 1.4rem;
+            }
+            .calendar-header {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+        }
+
+        .mute-button {
+            position: fixed;
+            bottom: 20px;
+            right: 22px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #d96666;
+            background-color: #d96666;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .mute-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            animation: zoom 5s ease-in-out infinite alternate;
+        }
+
+        .ganesha {
+            width: 70px;
+            margin: 0 auto 10px;
+        }
+
+        .shloka {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .countdown-title {
+            font-size: 1rem;
+        }
+
+        .time {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .time div {
+            background: #333;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            min-width: 60px;
+        }
+
+        .time label {
+            display: block;
+            font-size: 10px;
+            color: #ddd;
+            margin-top: 4px;
+        }
+
+        section {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .separator {
+            margin: 40px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .couple-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .couple {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .person {
+            text-align: center;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .person img {
+            width: 200px;
+            height: 200px;
+            border-radius: 20%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .person-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .heart {
+            font-size: 2.5rem;
+            color: #e63946;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        iframe {
+            width: 90%;
+            max-width: 900px;
+            height: 500px;
+            border: 0;
+            margin-top: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+           @media (max-width: 1023px){
+.couple {
+                flex-direction: column;
+            }
+
+}
+
+        @media (max-width: 600px) {
+            iframe {
+                height: 300px;
+                max-width: 90%;
+            }
+        }
+
+        footer {
+            background: #f8eae0;
+            padding: 30px 10px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5e3d3d;
+            border-top: 2px solid #dcb7aa;
+        }
+
+        footer span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.1rem;
+            color: #a45e5e;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .couple {
+                flex-direction: column;
+            }
+
+            .time div {
+                padding: 8px 12px;
+            }
+        }
+
+        .gallery-container {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fefcf8;
+        }
+
+        .gallery-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #d6336c;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-in-up 0.6s ease-out forwards;
+        }
+.venue-title{
+ font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: black;
+            margin: 20px ;
+}
+        
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            font-size: 1rem;
+            color: #a45e5e;
+            font-weight: 600;
+        }
+
+.video-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f0ec;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 45%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
+    height: 70%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    display: block;
+    background-color: black;
+}
+@media (max-width: 800px){
+.video-wrapper {
+        width: 80%;
+        height:700px;
+        padding-bottom: 56.25%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+
+}
+media (max-width: 1000px){
+.video-wrapper {
+        width: 80%;
+        height:750px;
+        padding-bottom: 56.25%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+
+}
+
+
+@media (max-width: 600px){
+.video-wrapper {
+        width: 100%;
+        height:650px;
+        padding-bottom: 56.25%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+
+}
+@media (max-width: 400px) {
+    .video-section {
+        padding: 40px 15px;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        height:450px;
+        padding-bottom: 56.25%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .video-wrapper video {
+        background-color: transparent;
+    }
+}        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox-caption {
+            color: white;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 10px;
+            user-select: none;
+        }
+
+        .lightbox-prev {
+            left: -60px;
+        }
+
+        .lightbox-next {
+            right: -60px;
+        }
+        .reception-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f8f0ec;
+        }
+
+        .reception-section .section-title {
+            margin-bottom: 40px;
+            color: #a45e5e;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .reception-details {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            line-height: 1.8;
+            transition: transform 0.3s ease;
+        }
+        
+        .reception-details:hover {
+            animation: pulse 1s infinite;
+        }
+
+        .reception-details p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .reception-details .reception-date,
+        .reception-details .reception-time,
+        .reception-details .reception-venue {
+            font-weight: 600;
+            color: #d6336c;
+        }
+
+        .reception-details .reception-note {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            margin-top: 25px;
+            color: #884a4a;
+        }
+
+        @media (max-width: 600px) {
+            .reception-section {
+                padding: 40px 15px;
+            }
+            .reception-details {
+                padding: 20px;
+            }
+            .reception-details p {
+                font-size: 1rem;
+            }
+            .reception-details .reception-note {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                font-size: 2.5rem;
+                padding: 5px;
+            }
+            .lightbox-prev {
+                left: 10px;
+            }
+            .lightbox-next {
+                right: 10px;
+            }
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                font-size: 1.8rem;
+            }
+            .lightbox-image {
+                max-height: 70vh;
+            }
+.gallery-item img {
+                height: 420px;
+                
+            }
+
+            }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item img {
+                height: 300px;
+            }
+            .gallery-title {
+                font-size: 2rem;
+            }
+        }
+
+        .section-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.5rem;
+            color: #a45e5e;
+            margin-bottom: 30px;
+        }
+        
+        .venue-card-iframe {
+            animation: float 2s ease-in-out infinite;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <div class="card">
+            <img src="ganesh.png" alt="Ganesha" class="ganesha" />
+            <div class="shloka">
+               || శ్రీ గణేశాయ నమః || <br>
+వక్రతుండ మహాకాయ సూర్యకోటిసమప్రభః। <br>
+నిర్విఘ్నం కురు మే దేవ సర్వకార్యేషు సర్వదా॥ <br>
+            </div>
+            <h1>Anil & Bhargavi</h1>
+            <h2>We're Getting Married!❤️</h2>
+            <div class="wedding-date-layout">
+                <div class="day-name">Saturday</div>
+                <div class="date-line">
+                    <span class="day">9</span>
+                    <span class="pipe">|</span>
+                    <span class="month">Aug</span>
+                    <span class="pipe">|</span>
+                    <span class="year">2025</span>
+                </div>
+            </div>
+            <br>
+            <div class="countdown-title">Wedding starts in</div>
+            <div class="time">
+                <div><span id="d">00</span><label>Days</label></div>
+                <div><span id="h">00</span><label>Hours</label></div>
+                <div><span id="m">00</span><label>Minutes</label></div>
+                <div><span id="s">00</span><label>Seconds</label></div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="section-title">Meet the Couple</div>
+        <div class="couple">
+            <div class="person">
+                <img src="anil.jpg" alt="Groom" />
+                <div class="person-name">Mudela Venkata Anil Kumar Reddy <br> The handsome Groom <br><span>(S/O Mudela Vijaya Laxmi & Venkateswara Reddy)</span></div>
+            </div>
+            <div class="heart">❤️</div>
+            <div class="person">
+                <img src="bhavika.jpg" alt="Bride" />
+                <div class="person-name">Sanikommu BalaBhargavi <br> The Beautiful Bride <br><span> (D/O Venkata Subbamma & Srinivas Reddy)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <audio id="bg-music" loop>
+        <source src="song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="muteBtn" class="mute-button" onclick="toggleMute()">
+        <i id="muteIcon" class="fas fa-volume-xmark"></i>
+    </button>
+
+    <section class="save-date">
+        <div class="section-title">Save The Date</div>
+        <p class="save-subtitle">Saturday 9 August, 2025</p>
+
+        <div class="calendar-wrapper">
+            <div class="calendar-header">
+                <span class="month-year">August 2025</span>
+            </div>
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
+                    <tr><td>3</td><td>4</td><td>5</td><td>6</td>
+                        <td >7</td>
+                        <td>8</td><td class="love-date">9  <span class="love">❤️</span></td>
+                    </tr>
+                    <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+                    <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+                    <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
+                    <tr><td>31</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+<section class="reception-section">
+        <div class="section-title">Grand Reception</div>
+        <div class="reception-details">
+            <p class="reception-date">Date: Sunday, 10 August 2025</p>
+            <p class="reception-time">Time: 7:00 PM onwards</p>
+            <p class="reception-venue">Venue: Hotel Shubham Celebrations</p>
+            <p class="reception-note">Your presence will make our celebration complete!</p>
+        </div>
+    </section>
+
+    <section class="gallery-container">
+        <div class="section-title">Our Moments</div>
+        <div class="gallery-grid">
+              <div class="gallery-item" data-caption="Engagement smiles">
+                <img src="both.jpg" alt="Engagement">
+                <div class="gallery-caption">Engagement💍</div>
+            </div>
+             <div class="gallery-item" data-caption="Engagement Smiles">
+                <img src="engag.jpg" alt="Engagement Smiles">
+                <div class="gallery-caption">Engagement Smiles</div>
+            </div>
+            <div class="gallery-item" data-caption="Groom's Haldi Fun">
+                <img src="AnilHaldi.jpeg" alt="Haldi Ceremony Photo 2">
+                <div class="gallery-caption">Groom's Haldi Fun</div>
+            </div>
+            <div class="gallery-item" data-caption="Bride's Haldi Ceremony">
+                <img src="BhavikaHaldi.jpeg" alt="Haldi Ceremony Photo 1">
+                <div class="gallery-caption">Bride's Haldi Ceremony</div>
+            </div>
+            <div class="gallery-item" data-caption="Bride's Beauty">
+                <img src="brideEng.jpg" alt="Engagement Ring">
+                <div class="gallery-caption">Bride's Beauty</div>
+            </div>
+            
+            <div class="gallery-item" data-caption="Together">
+                <img src="together.jpg" alt="Together">
+                <div class="gallery-caption">Together💝</div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose">×</span>
+            <i class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lightboxPrev"></i>
+            <img src="" alt="Full size image" class="lightbox-image" id="lightboxImage">
+            <i class="fas fa-chevron-right lightbox-nav lightbox-next" id="lightboxNext"></i>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+<section class="video-section">
+    <div class="section-title">A journey of AB💕</div>
+    <div class="video-wrapper">
+        <video id="ourLoveStoryVideo" controls playsinline>
+            <source src="vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+    <section id="venue">
+        <div class="section-title">Venue</div>
+<p class="venue-title"><u>Marriage Venue</u></p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14132.284837521238!2d79.7939909047257!3d16.500531898933456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3568e9bf3dde5d%3A0xc7b486fa27d507fc!2sKaralapadu%2C%20Andhra%20Pradesh%20522437!5e1!3m2!1sen!2sin!4v1753889611350!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<p class="venue-title"><u>Reception Venue</u></p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.6955305046104!2d78.44522561074656!3d17.513314583326228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9023e288f7c9%3A0xab4c0d9783bbff2a!2sHotel%20Shubham%20Celebrations!5e1!3m2!1sen!2sin!4v1753889414198!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </section>
+
+    <footer>
+        <p>© 2025 Anil & Bhargavi | Made with 💖</p>
+    </footer>
+
+    <script>
+        function updateCountdown() {
+            const target = new Date('Aug 8, 2025 11:00:00').getTime();
+            const now = Date.now();
+            const distance = target - now;
+
+            if (distance < 0) {
+                document.querySelector('.countdown-title').innerText = "Event has started.";
+                document.getElementById('d').textContent = "00";
+                document.getElementById('h').textContent = "00";
+                document.getElementById('m').textContent = "00";
+                document.getElementById('s').textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('d').textContent = String(days).padStart(2, '0');
+            document.getElementById('h').textContent = String(hours).padStart(2, '0');
+            document.getElementById('m').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('s').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        const audio = document.getElementById('bg-music');
+        const muteIcon = document.getElementById('muteIcon');
+
+        audio.muted = true;
+        muteIcon.classList.remove('fa-volume-up');
+        muteIcon.classList.add('fa-volume-xmark');
+
+        function toggleMute() {
+            if (audio.muted) {
+                audio.muted = false;
+                audio.play().catch((e) => {
+                    console.error("Audio playback failed:", e);
+                    audio.muted = true;
+                    muteIcon.classList.remove('fa-volume-up');
+                    muteIcon.classList.add('fa-volume-xmark');
+                });
+                muteIcon.classList.remove('fa-volume-xmark');
+                muteIcon.classList.add('fa-volume-up');
+            } else {
+                audio.muted = true;
+                audio.pause();
+                muteIcon.classList.remove('fa-volume-up');
+                muteIcon.classList.add('fa-volume-xmark');
+            }
+        }
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentImageIndex = 0;
+        let images = [];
+
+        galleryItems.forEach((item, index) => {
+            images.push({
+                src: item.querySelector('img').src,
+                caption: item.dataset.caption
+            });
+        });
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxContent();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightboxContent() {
+            lightboxImage.src = images[currentImageIndex].src;
+            lightboxCaption.textContent = images[currentImageIndex].caption;
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateLightboxContent();
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateLightboxContent();
+        }
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => openLightbox(index));
+            // Add staggered animation delay
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrevImage);
+        lightboxNext.addEventListener('click', showNextImage);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
+                showNextImage();
+            } else if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) {
+                showPrevImage();
+            }
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Confetti code
+        function launchConfetti() {
+            const defaults = {
+                spread: 360,
+                ticks: 50,
+                gravity: 0,
+                decay: 0.94,
+                startVelocity: 30,
+                colors: ['FFE400', 'FFBD00', 'E89400', 'FF0000', 'FF4C65', 'FF66A3', 'FF99CC', 'CC00FF', '9933FF', '6666FF', '0099FF', '00CCFF', '00FFFF', '00FFCC', '00FF99', '00FF66', '00FF33', '00FF00', 'CCFF00', 'FFFF00'],
+            };
+
+            function shoot() {
+                confetti({
+                    ...defaults,
+                    particleCount: 10,
+                    scalar: 1.2,
+                    shapes: ['star', 'circle'],
+                    origin: { x: 0.1, y: Math.random() * 0.7 + 0.2 },
+                });
+                confetti({
+                    ...defaults,
+                    particleCount: 10,
+                    scalar: 1.2,
+                    shapes: ['star', 'circle'],
+                    origin: { x: 0.9, y: Math.random() * 0.7 + 0.2 },
+                });
+            }
+
+            setInterval(shoot, 700);
+        }
+
+        // Call launchConfetti when the page loads
+        document.addEventListener('DOMContentLoaded', launchConfetti);
+
+    </script>
+
+</body>
+</html>
