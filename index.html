@@ -690,6 +690,58 @@ media (max-width: 1000px){
         .venue-card-iframe {
             animation: float 2s ease-in-out infinite;
         }
+.invitation-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fefcf8;
+}
+
+.invitation-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 30px auto 0;
+    flex-wrap: wrap;
+}
+
+.invitation-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(50% - 15px);
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+.invitation-caption {
+    padding: 15px;
+    font-size: 1rem;
+    color: #a45e5e;
+    font-weight: 600;
+}
+.invitation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.invitation-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .invitation-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .invitation-card {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+}
 
     </style>
 </head>
@@ -779,7 +831,19 @@ media (max-width: 1000px){
             </table>
         </div>
     </section>
-
+<section class="invitation-section">
+    <div class="section-title">Wedding Invitation</div>
+    <div class="invitation-cards">
+        <div class="invitation-card">
+            <img src="AnilCard.jpg" alt="Groom's Wedding Card">
+            <div class="invitation-caption">Mudela's Invitation Card</div>
+        </div>
+        <div class="invitation-card">
+            <img src="bhavikaCard.jpg" alt="Bride's Wedding Card">
+            <div class="invitation-caption">Sanikommu's Invitation Card</div>
+        </div>
+    </div>
+</section>
 <section class="reception-section">
         <div class="section-title">Grand Reception</div>
         <div class="reception-details">
