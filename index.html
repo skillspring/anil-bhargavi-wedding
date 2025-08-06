@@ -742,6 +742,26 @@ media (max-width: 1000px){
         margin-bottom: 20px;
     }
 }
+        #ourLoveStoryVideo2 {
+  width: 100%;
+  height: auto;
+  max-width: 900px; /* Prevent it from stretching too wide */
+}
+
+/* Extra small devices (phones under 350px) */
+@media (max-width: 350px) {
+  #ourLoveStoryVideo2 {
+    max-width: 280px;
+  }
+}
+
+/* Small devices (phones under 500px) */
+@media (max-width: 500px) {
+  #ourLoveStoryVideo2 {
+    max-width: 330px;
+  }
+}
+
 
     </style>
 </head>
@@ -900,8 +920,16 @@ media (max-width: 1000px){
 <section class="video-section">
     <div class="section-title">A journey of AB💕</div>
     <div class="video-wrapper">
-        <video id="ourLoveStoryVideo" controls playsinline>
+        <video id="ourLoveStoryVideo1" controls playsinline>
             <source src="vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <br>
+ <div class="section-title">Invitation Video💌</div>
+    <div class="vertical-video-wrapper">
+        <video id="ourLoveStoryVideo2" controls playsinline>
+            <source src="Anil KUmar Wedding invitation.m4v" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
