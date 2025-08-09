@@ -485,61 +485,6 @@ media (max-width: 1000px){
         border-radius: 0;
         box-shadow: none;
     }
-#myModal {
-  display: flex; /* Always visible */
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: white;
-  padding: 30px 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  position: relative;
-}
-
-/* Close Button */
-.close {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #444;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: red;
-}
-
-/* Watch Button */
-#watchBtn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: crimson;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#watchBtn:hover {
-  background-color: darkred;
-}
-
 
 
 }
@@ -745,6 +690,7 @@ media (max-width: 1000px){
         .venue-card-iframe {
             animation: float 2s ease-in-out infinite;
         }
+
 .invitation-section {
     padding: 60px 20px;
     text-align: center;
@@ -785,19 +731,8 @@ media (max-width: 1000px){
     height: auto;
     display: block;
 }
-
-@media (max-width: 768px) {
-    .invitation-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-    .invitation-card {
-        width: 90%;
-        max-width: 500px;
-        margin-bottom: 20px;
-    }
-}
-        #ourLoveStoryVideo2 {
+/* Default style */
+#ourLoveStoryVideo2 {
   width: 100%;
   height: auto;
   max-width: 900px; /* Prevent it from stretching too wide */
@@ -816,7 +751,73 @@ media (max-width: 1000px){
     max-width: 330px;
   }
 }
+#myModal {
+  display: flex; /* Always visible */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red;
+}
+
+/* Watch Button */
+#watchBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#watchBtn:hover {
+  background-color: darkred;
+}
+
+
+@media (max-width: 768px) {
+    .invitation-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .invitation-card {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+}
 
     </style>
 </head>
@@ -853,8 +854,15 @@ media (max-width: 1000px){
             </div>
         </div>
     </div>
-
-    <section>
+<div id="myModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>🎉 You're Invited!</h3>
+<br>
+    <p> Watch our wedding live and be part of our special day🎊!</p>
+    <button id="watchBtn">Watch Live</button>
+  </div>
+</div>    <section>
         <div class="section-title">Meet the Couple</div>
         <div class="couple">
             <div class="person">
@@ -919,6 +927,7 @@ media (max-width: 1000px){
         </div>
     </div>
 </section>
+
 <section class="reception-section">
         <div class="section-title">Grand Reception</div>
         <div class="reception-details">
@@ -928,38 +937,35 @@ media (max-width: 1000px){
             <p class="reception-note">Your presence will make our celebration complete!</p>
         </div>
     </section>
-<div id="myModal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3>🎉 You're Invited!</h3>
-<br>
-    <p> Watch our wedding live and be part of our special day🎊!</p>
-    <button id="watchBtn">Watch Live</button>
-  </div>
-</div> 
+
+
     <section class="gallery-container">
         <div class="section-title">Our Moments</div>
         <div class="gallery-grid">
               <div class="gallery-item" data-caption="Engagement smiles">
                 <img src="both.jpg" alt="Engagement">
                 <div class="gallery-caption">Engagement💍</div>
-            </div>
-             <div class="gallery-item" data-caption="Engagement Smiles">
+              </div>
+
+              <div class="gallery-item" data-caption="Engagement Smiles">
                 <img src="engag.jpg" alt="Engagement Smiles">
                 <div class="gallery-caption">Engagement Smiles</div>
-            </div>
-            <div class="gallery-item" data-caption="Groom's Haldi Fun">
+              </div>
+
+              <div class="gallery-item" data-caption="Groom's Haldi Fun">
                 <img src="AnilHaldi.jpeg" alt="Haldi Ceremony Photo 2">
                 <div class="gallery-caption">Groom's Haldi Fun</div>
-            </div>
-            <div class="gallery-item" data-caption="Bride's Haldi Ceremony">
+              </div>
+
+              <div class="gallery-item" data-caption="Bride's Haldi Ceremony">
                 <img src="BhavikaHaldi.jpeg" alt="Haldi Ceremony Photo 1">
                 <div class="gallery-caption">Bride's Haldi Ceremony</div>
-            </div>
-            <div class="gallery-item" data-caption="Bride's Beauty">
+              </div>
+
+              <div class="gallery-item" data-caption="Bride's Beauty">
                 <img src="brideEng.jpg" alt="Engagement Ring">
                 <div class="gallery-caption">Bride's Beauty</div>
-            </div>
+              </div>
             
             <div class="gallery-item" data-caption="Together">
                 <img src="together.jpg" alt="Together">
@@ -992,12 +998,11 @@ media (max-width: 1000px){
  <div class="section-title">Invitation Video💌</div>
     <div class="vertical-video-wrapper">
         <video id="ourLoveStoryVideo2" controls playsinline>
-            <source src="Anil KUmar Wedding invitation.mp4" type="video/mp4">
+            <source src="Anil KUmar Wedding invitation.m4v" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-</section>
-    <section id="venue">
+</section>    <section id="venue">
         <div class="section-title">Venue</div>
 <p class="venue-title"><u>Marriage Venue</u></p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14132.284837521238!2d79.7939909047257!3d16.500531898933456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3568e9bf3dde5d%3A0xc7b486fa27d507fc!2sKaralapadu%2C%20Andhra%20Pradesh%20522437!5e1!3m2!1sen!2sin!4v1753889611350!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1012,7 +1017,7 @@ media (max-width: 1000px){
 
     <script>
         function updateCountdown() {
-            const target = new Date('Aug 9, 2025 11:45:00').getTime();
+            const target = new Date('Aug 8, 2025 11:00:00').getTime();
             const now = Date.now();
             const distance = target - now;
 
@@ -1167,9 +1172,8 @@ media (max-width: 1000px){
             setInterval(shoot, 700);
         }
 
-        // Call launchConfetti when the page loads
-        document.addEventListener('DOMContentLoaded', launchConfetti);
- const modal = document.getElementById("myModal");
+
+  const modal = document.getElementById("myModal");
   const closeBtn = document.querySelector(".close");
   const watchBtn = document.getElementById("watchBtn");
 
@@ -1188,7 +1192,7 @@ media (max-width: 1000px){
     modal.style.display = "flex";
   };
 
-    </script>
+         </script>
 
 </body>
 </html>
